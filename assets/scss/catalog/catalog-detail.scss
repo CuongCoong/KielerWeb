@@ -1,0 +1,38 @@
+.catalogDetail {
+    background-color: $color3;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    display: grid;
+    &-slideshow {
+        margin: auto auto;
+        max-width: 937px;
+        &__previous,
+        &__next {
+            margin-top: 10rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 37px;
+            height: 37px;
+            border: 1px solid $textcolor6;
+            font-size: 25px;
+            color: $textcolor2;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+        }
+        &__close{
+            position: absolute;
+            top: 26.67px;
+            right: 28.67px;
+            color: $textcolor2;
+            font-size: 30px;
+            cursor: pointer;
+        }
+    }
+}

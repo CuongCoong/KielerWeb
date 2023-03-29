@@ -1,0 +1,283 @@
+header {
+	margin-bottom: 72px;
+}
+.header {
+	font-family: 'Poppins', sans-serif;
+	@include container(6vw);
+	background-color: $white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 7.2rem;
+	z-index: 999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	&__logo {
+		min-width: 11.46vw;
+	}
+	&__menu {
+		display: flex;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.9rem;
+		text-align: center;
+		& > li {
+			& > a {
+				padding: 2.7rem 1.198vw 2.45rem 1.407vw;
+				white-space: nowrap;
+				transition: all 0.2s linear;
+				&:hover {
+					padding: 2.7rem 1.198vw 2.45rem 1.407vw;
+					font-weight: 700;
+					border-bottom: 0.5rem solid $color3;
+				}
+			}
+
+			&:last-child {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1.809rem;
+				cursor: pointer;
+			}
+
+			&:hover .header__menu__dropdown-product__link {
+				font-weight: 600;
+				border-bottom: 0.5rem solid $color3;
+			}
+		}
+
+		&__dropdown {
+			&-product > a {
+				position: relative;
+			}
+
+			&-product {
+				&:hover .header__dropdown-mega {
+					display: block;
+					position: absolute;
+					top: 100%;
+					left: 0;
+				}
+			}
+		}
+	}
+
+	&__dropdown-mega {
+		@include megaMenu;
+		display: none;
+	}
+}
+
+@keyframes slide-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-100%);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.mobile {
+	background-color: $white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: none;
+	z-index: 999;
+	@include container(6vw);
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1.4rem 0;
+		z-index: 998;
+		&-toggle {
+			&__search {
+				font-size: 2rem;
+			}
+			&__language {
+				margin: 0 1rem;
+			}
+			&__bar {
+				font-size: 2.8rem;
+			}
+		}
+	}
+
+	&__menu {
+		background-color: $color4;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: 30rem;
+		padding: 5rem 1.3rem 10rem 2rem;
+		overflow-y: auto;
+		transform: translateX(100%);
+		z-index: 999;
+		&__title {
+			font-size: 1.4rem;
+			font-weight: 500;
+			padding-bottom: 5rem;
+		}
+		&__main-menu {
+			padding-bottom: 3.4rem;
+			& > li {
+				position: relative;
+				padding-bottom: 1.5rem;
+				& > a {
+					font-size: 2rem;
+					font-weight: bold;
+				}
+				& > i {
+					position: absolute;
+					top: 0;
+					right: 0;
+					font-size: 1.8rem;
+				}
+			}
+			&__dropdown-mega {
+				display: none;
+				margin-top: 2rem;
+				animation: faded 1s forwards;
+				&__list {
+				}
+			}
+		}
+
+		&__sub-menu {
+			padding-bottom: 3.4rem;
+			& > li {
+				padding-bottom: 1.4rem;
+				& > a {
+					font-size: 1.4rem;
+					font-weight: 400;
+				}
+			}
+		}
+		&__login {
+			font-size: 1.5rem;
+		}
+		&__copyright {
+			margin-top: 15rem;
+			& > p {
+				font-size: 1.2rem;
+				font-weight: 600;
+				line-height: 2rem;
+			}
+		}
+	}
+}
+
+.show-from-right {
+	animation: showFromRight 0.5s forwards;
+}
+
+.hide-to-right {
+	animation: hideToRight 0.5s forwards;
+}
+
+@keyframes showFromRight {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes hideToRight {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(100%);
+	}
+}
+.rotate-180 {
+	animation: rotate180 0.5s forwards;
+	color: $color2;
+}
+.rotate-0 {
+	animation: rotate0 0.5s forwards;
+	color: inherit;
+}
+@keyframes rotate180 {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(180deg);
+	}
+}
+@keyframes rotate0 {
+	from {
+		transform: rotate(180deg);
+	}
+	to {
+		transform: rotate(0);
+	}
+}
+
+@keyframes faded {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@media (max-width: 1280px) {
+	.header {
+		&__menu {
+			font-size: 11px;
+			& > li {
+				& > a {
+					padding: 2.7rem 1.198vw 2.85rem 1.407vw;
+					&:hover {
+						padding: 2.7rem 1.198vw 2.85rem 1.407vw;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 900px) {
+	.header {
+		display: none;
+		&__dropdown-mega {
+			&__list {
+				grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+				margin-left: 1.5rem;
+				margin-right: 1rem;
+				&__box {
+					&-infor {
+						margin-left: 0.2rem;
+						& > h3 {
+							font-size: 1.1rem;
+							margin-bottom: 1rem;
+						}
+						& > p {
+							& > span {
+								font-size: 1.1rem;
+							}
+							& > del {
+								font-size: 1rem;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.mobile {
+		display: block;
+	}
+}

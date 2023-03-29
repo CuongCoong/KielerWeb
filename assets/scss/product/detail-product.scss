@@ -1,0 +1,394 @@
+.detailProduct {
+	background-color: $color5;
+	padding-bottom: 5rem;
+
+	&__container {
+		display: grid;
+		margin-top: 1.6rem;
+		grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+		gap: 2rem;
+
+		&-carousel {
+			background-color: $white;
+		}
+
+		&__content {
+			&-products {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+				gap: 1.6rem;
+				overflow-y: scroll;
+				height: 168px;
+				padding-right: 5px;
+
+				&__item {
+					background-color: $white;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					height: 76px;
+					transition: transform 0.3s ease-in-out;
+
+					& > img {
+						width: 73.27px;
+						height: 60.41px;
+					}
+
+					&:hover {
+						transform: translateY(-5px);
+						border: 1px solid rgba(128, 128, 128, 0.16);
+						box-shadow: 0px 6px 11px rgba(24, 24, 24, 0.2);
+					}
+				}
+
+				&::-webkit-scrollbar {
+					width: 5px;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background-color: $color1;
+					border-radius: 20px;
+				}
+			}
+
+			&-price {
+				padding: 24px 0;
+				display: flex;
+				align-items: flex-end;
+
+				&__sale {
+					font-family: 'Poppins', sans-serif;
+					font-size: 30px;
+					text-transform: uppercase;
+					line-height: 37px;
+					padding-left: 5px;
+
+					& > del {
+						margin-left: 1rem;
+						font-size: 16px;
+						font-weight: 400;
+					}
+				}
+			}
+
+			&-desc {
+				font-size: 16px;
+				line-height: 24px;
+				color: $textcolor;
+
+				& > p {
+					padding-bottom: 24px;
+				}
+			}
+		}
+	}
+
+	&__tabControl {
+		@include container(6vw);
+		margin-top: 40px;
+
+		&__tab {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			place-items: center;
+
+			&-item {
+				width: 100%;
+				transition: transform 0.3s ease-in-out;
+				cursor: pointer;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: $color9;
+
+				&__link {
+					width: 100%;
+					font-family: 'Poppins', sans-serif;
+					font-weight: 500;
+					font-size: 20px;
+					line-height: 24px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					color: $textcolor;
+					height: 80px;
+				}
+				&__text {
+					width: 80%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					height: 100%;
+					&.active {
+						border-bottom: 3px solid $color3;
+					}
+				}
+
+				&__link.active {
+					background-color: $color1;
+					color: $white;
+				}
+			}
+		}
+	}
+
+	&__tabContent {
+		padding: 40px 63px;
+		border: 1px solid $textcolor3;
+		background-color: $white;
+
+		&__table {
+			line-height: 17px;
+
+			& > tbody {
+				& > tr {
+					font-size: 14px;
+					color: $textcolor;
+					border: 1px solid $color10;
+					border-radius: 10px;
+
+					& > th {
+						padding: 10px 12px;
+						background-color: $color4;
+						border-right: 1px solid $color10;
+						max-width: 105px;
+					}
+
+					& > td {
+						padding: 10px 12px;
+					}
+				}
+			}
+		}
+
+		&-tabDescriptionProduct {
+			font-size: 16px;
+			line-height: 24px;
+
+			& > p {
+				margin-top: 1rem;
+
+				& > span {
+					color: $textcolor7;
+					margin-right: 5px;
+				}
+			}
+		}
+
+		&-tabUserManual {
+			text-align: center;
+
+			& > img {
+				width: 100%;
+				height: auto;
+				padding-bottom: 2rem;
+			}
+		}
+	}
+
+	&__video {
+		margin-top: 4.8rem;
+		position: relative;
+
+		&__bg {
+			width: 100%;
+			height: auto;
+		}
+
+		&-wrap {
+			position: absolute;
+			bottom: 16%;
+			left: 0;
+			right: 0;
+			display: block;
+			margin: auto auto;
+			text-align: center;
+		}
+
+		&__title {
+			color: $color3;
+			font-family: 'Poppins', sans-serif;
+			font-weight: 700;
+			font-size: 30px;
+			line-height: 37px;
+			text-align: center;
+			text-transform: uppercase;
+			margin-bottom: 29px;
+
+			& > p {
+				font-weight: 500;
+				color: $white;
+			}
+		}
+
+		&__play {
+			color: $color4;
+			font-size: 40px;
+			cursor: pointer;
+
+			&:hover {
+				color: $color3;
+			}
+		}
+	}
+}
+
+@media (max-width: 769px) {
+	.detailProduct {
+		&__tabControl {
+			margin-top: 20px;
+
+			&__tab {
+				&-item {
+					&__link {
+						font-size: 14px;
+						height: 50px;
+					}
+				}
+			}
+		}
+
+		&__tabContent {
+			padding: 30px 20px;
+
+			&__table {
+				& > tbody {
+					& > tr {
+						font-size: 12px;
+
+						& > th {
+							padding: 5px 6px;
+						}
+
+						& > td {
+							padding: 5px 6px;
+						}
+					}
+				}
+			}
+		}
+
+		&__video {
+			margin-top: 3.8rem;
+
+			&__title {
+				font-size: 20px;
+				line-height: 30px;
+			}
+		}
+	}
+}
+
+@media (max-width: 426px) {
+	.detailProduct__container {
+		display: block;
+	}
+
+	.detailProduct__container__content {
+		margin-top: 2rem;
+
+		&-price {
+			&__sale {
+				font-size: 20px;
+
+				& > del {
+					font-size: 12px;
+				}
+			}
+		}
+
+		&-desc {
+			font-size: 14px;
+		}
+	}
+
+	.detailProduct {
+		&__tabControl {
+			margin-top: 20px;
+
+			&__tab {
+				&-item {
+					&__link {
+						font-size: 9px;
+						height: 40px;
+					}
+					&__text {
+						width: 90%;
+					}
+				}
+			}
+		}
+
+		&__tabContent {
+			padding: 15px 10px;
+			&__table {
+				& > tbody {
+					& > tr {
+						font-size: 9px;
+					}
+				}
+			}
+			&-tabDescriptionProduct {
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+@media (max-width: 500px) {
+	.detailProduct {
+		&__video {
+			margin-top: 3.8rem;
+
+			&__title {
+				font-size: 14px;
+				line-height: 26px;
+				margin-bottom: 10px;
+			}
+
+			&__play {
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+.video-background-holder {
+	position: relative;
+	background-color: black;
+	height: calc(100vh - 72px);
+	min-height: 25rem;
+	width: 100%;
+	overflow: hidden;
+}
+
+.video-background-holder video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: 0;
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+.video-background-content {
+	position: relative;
+	z-index: 2;
+}
+
+.video-background-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+	opacity: 0.5;
+	z-index: 1;
+}

@@ -1,0 +1,51 @@
+.policyMenu {
+	background-color: $color5;
+	&-tabControl {
+		padding-bottom: 7rem;
+		&__tab {
+			&__btn {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				background: $borderbox;
+				color: $color1;
+				width: 100%;
+				padding: 16px;
+				border: 1px solid $borderbox2;
+				font-family: 'Poppins', sans-serif;
+				font-weight: 500;
+				font-size: 20px;
+				line-height: 24.38px;
+				& > i {
+					font-size: 13px;
+				}
+			}
+			&__content {
+				background: #ffffff;
+				border: 1px solid $borderbox2;
+				padding: 16px;
+				color: $black;
+				font-size: 16px;
+				line-height: 24px;
+				transition: all 0.4s linear;
+			}
+		}
+	}
+}
+@media (max-width: 426px) {
+	.policyMenu {
+		&-tabControl {
+			padding-bottom: 5rem;
+			&__tab {
+				&__btn {
+					padding: 12px;
+					font-size: 14px;
+				}
+				&__content {
+					font-size: 12px;
+					line-height: 24px;
+				}
+			}
+		}
+	}
+}

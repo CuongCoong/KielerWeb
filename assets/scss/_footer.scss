@@ -1,0 +1,44 @@
+footer {
+	background-color: $color1;
+	background: url('../img/bg-footer.svg') no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-color: $color1;
+	padding: 6rem 0 5.5rem 0;
+}
+.footer {
+	@include container(6vw);
+	color: $color4;
+	font-size: 1.6rem;
+	line-height: 1.9rem;
+	font-weight: 400;
+	font-family: 'Lato', sans-serif;
+	&__row {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		column-gap: 10rem;
+	}
+	&-logo {
+		margin-bottom: 3rem;
+	}
+	&-headsquartes,
+	&-branch,
+	&-infor,
+	&-services {
+		margin-top: 1.8rem;
+		& > h3 {
+			font-weight: 700;
+			font-family: 'Poppins', sans-serif;
+			padding-bottom: 1rem;
+		}
+		& > p {
+			font-weight: 400;
+			line-height: 1.92rem;
+			padding-bottom: 1.5rem;
+		}
+		& > p > img,
+		& > p > i {
+			padding-right: 0.7rem;
+		}
+	}
+}

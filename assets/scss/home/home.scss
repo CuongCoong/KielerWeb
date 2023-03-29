@@ -1,0 +1,660 @@
+main {
+	overflow-y: hidden;
+}
+
+.carousel-item {
+	position: relative;
+
+	&__text {
+		position: absolute;
+		top: 42%;
+		left: 0;
+		right: 0;
+		text-align: center;
+		color: $white;
+
+		&__title {
+			font-family: 'Poppins', sans-serif;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 2.62vw;
+			line-height: 44px;
+			text-transform: uppercase;
+			color: $white;
+
+			& > span {
+				color: $color3;
+			}
+		}
+
+		&__desc {
+			margin: 0 auto;
+			width: 57.1vw;
+			height: 80px;
+			padding-top: 1rem;
+			font-weight: 400;
+			font-size: 1.165vw;
+			line-height: 24px;
+			text-align: center;
+		}
+	}
+}
+
+.carousel-indicators [data-bs-target] {
+	width: 1rem;
+	height: 1rem;
+	border-radius: 100%;
+	background-color: $textcolor2;
+	background-clip: padding-box;
+	cursor: pointer;
+}
+.carousel-indicators button.active {
+	background-color: $color2;
+}
+.carousel-control-prev,
+.carousel-control-next {
+	width: 3.7rem;
+	height: 3.7rem;
+	position: absolute;
+	top: 45%;
+	transform: translateY(-50%);
+	margin-right: 5rem;
+	margin-left: 5rem;
+}
+.hero {
+	@include container(6vw);
+	margin-top: 3.8rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(19.52vw, 1fr));
+	column-gap: 1.6rem;
+	row-gap: 2rem;
+
+	&__item {
+		position: relative;
+		transition: transform 0.7s ease-in-out;
+		z-index: 1;
+		&-img {
+			width: 100%;
+			height: auto;
+		}
+
+		&-title {
+			width: 100%;
+			height: 4rem;
+			background-color: $color1;
+			color: $color4;
+			font-size: 16px;
+			line-height: 19px;
+			text-align: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		&-hover {
+			opacity: 0;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			overflow: hidden;
+			transition: all 1s ease-in-out;
+			z-index: 2;
+
+			&__bg {
+				position: relative;
+				width: 100%;
+				height: auto;
+			}
+			&__logo {
+				position: absolute;
+				top: 0;
+				right: 0;
+				& > img {
+					transform: translate(100%, -100%);
+					transition: transform 1s ease-in-out;
+				}
+			}
+			&__infor {
+				position: absolute;
+				bottom: 0;
+				width: 100%;
+				padding-top: 2.2rem;
+				padding-bottom: 1rem;
+				background-color: $color3;
+				text-align: center;
+				transform: translateY(100%);
+				transition: transform 1s ease-in-out;
+				&__title {
+					font-size: 20px;
+					font-weight: 500;
+					padding-bottom: 9px;
+					cursor: pointer;
+					&:hover {
+						color: $color2;
+					}
+				}
+				& > ul {
+					font-size: 16px;
+					line-height: 25px;
+				}
+				&__link {
+					&:hover {
+						color: $color2;
+					}
+				}
+			}
+			&:hover &__infor {
+				transform: translateY(0);
+			}
+			&:hover &__logo img {
+				transform: translate(0, 0);
+			}
+		}
+		&:hover &-hover {
+			opacity: 1;
+		}
+	}
+}
+
+@keyframes animateHover {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+.product {
+	@include container(6vw);
+	&__content {
+		@include styleContent;
+
+		&-title {
+			@include styleTitle;
+		}
+	}
+
+	@include listProduct(20.8rem, 26.7rem);
+	&-list {
+		&__banner {
+			max-height: calc(26.7rem);
+			overflow: hidden;
+		}
+		&__item {
+			position: relative;
+			overflow: hidden;
+
+			&__title {
+				white-space: normal;
+				width: 13rem;
+			}
+
+			&__sales {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				top: 0.8rem;
+				right: 1.6rem;
+				font-size: 1.6rem;
+				background-color: $color2;
+				line-height: 1.9rem;
+				border-radius: 50%;
+				width: 42px;
+				height: 40px;
+				color: $white;
+				font-weight: 700;
+				transition: transform 0.7s ease-in-out;
+			}
+
+			&:hover &__sales {
+				background-color: $color3;
+				color: $color1;
+			}
+
+			&:hover &__image {
+				transform: scale(1.2);
+			}
+		}
+	}
+	&-wrapper {
+		margin: 7rem 0;
+	}
+}
+.reviews {
+	@include container(6vw);
+	background-color: $color4;
+	padding-top: 7.5rem;
+	padding-bottom: 8.4rem;
+
+	&-customs {
+		&__opinion {
+			margin-bottom: 2rem;
+			&__title {
+				font-family: 'Poppins', sans-serif;
+				font-weight: 500;
+				font-size: 30px;
+				line-height: 37px;
+				text-transform: uppercase;
+				color: $textcolor;
+				padding-bottom: 2.1rem;
+			}
+			&__desc {
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 24px;
+				color: $textcolor2;
+				height: 10.7rem;
+			}
+
+			&-items {
+				margin: 0 auto;
+				&-wrapper {
+					display: flex;
+					gap: 2.4rem;
+				}
+
+				&-box {
+					width: 26.8rem;
+					height: 30.9rem;
+					background-color: $white;
+					padding: 12px 28.42px 21px 12px;
+					border: 1px solid $borderbox;
+					box-shadow: 0px 1px 4px $boxshadow;
+					overflow: auto;
+					&-infor {
+						display: flex;
+						align-items: center;
+						gap: 13.2px;
+						&__avatar {
+						}
+
+						&__name {
+							& > h4 {
+								font-weight: 700;
+								font-size: 16px;
+								line-height: 19px;
+								color: $textcolor;
+							}
+
+							& > p {
+								font-size: 14px;
+								line-height: 17px;
+								color: $textcolor2;
+							}
+						}
+					}
+
+					&-review {
+						padding-left: 8px;
+						& > p {
+							font-size: 16px;
+							line-height: 24px;
+							color: $textcolor2;
+						}
+					}
+				}
+			}
+			&__dots {
+				position: relative;
+				margin-top: 2rem;
+				width: 56rem;
+				margin-left: 0;
+			}
+		}
+
+		&__ads {
+			&-banner {
+				width: 100%;
+				height: auto;
+				min-height: 550px;
+				min-width: 491px;
+			}
+		}
+	}
+}
+.video {
+	@include container(6vw);
+	padding-bottom: 7rem;
+
+	&__content {
+		width: 100%;
+		text-align: center;
+		margin-top: 6.5rem;
+		margin-bottom: 7.3rem;
+
+		&-title {
+			font-family: 'Poppins', sans-serif;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 30px;
+			line-height: 37px;
+			text-transform: uppercase;
+			color: #000000;
+			margin-bottom: 1.8rem;
+		}
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 2rem;
+		margin-bottom: 5rem;
+
+		&-item {
+			position: relative;
+
+			&:hover .video__list-item-caption {
+				visibility: visible;
+				bottom: 0;
+				opacity: 1;
+				background: #010101;
+				opacity: 0.8;
+			}
+
+			&-play {
+				position: absolute;
+				top: 40%;
+				left: 40%;
+			}
+
+			&-caption {
+				position: absolute;
+				bottom: 0px;
+				left: 0;
+				right: 0;
+				display: flex;
+				align-items: center;
+				visibility: hidden;
+				opacity: 0;
+				width: 170px;
+				height: 130px;
+				font-style: normal;
+				padding: 10px;
+				font-weight: 400;
+				font-size: 16px;
+				line-height: 19px;
+				text-align: center;
+				z-index: 1;
+				transition-duration: 0.3s;
+				cursor: pointer;
+				color: #ffffff;
+			}
+		}
+	}
+}
+
+.partnership {
+	width: 100%;
+	background: #f5f2ee;
+	padding-top: 7rem;
+	padding-bottom: 7rem;
+	&__content {
+		text-align: center;
+		margin-bottom: 5.8rem;
+
+		&-title {
+			font-family: 'Poppins', sans-serif;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 30px;
+			line-height: 37px;
+			text-transform: uppercase;
+			color: #000000;
+			margin-bottom: 1.8rem;
+		}
+	}
+
+	&__slideshow {
+		@include container(6vw);
+		position: relative;
+		&__items {
+			display: flex;
+			justify-content: left;
+			overflow: hidden;
+		}
+
+		&__icon {
+			&__next {
+				position: absolute;
+				right: 2.5%;
+				top: 30%;
+			}
+
+			&__previous {
+				position: absolute;
+				left: 2.5%;
+				top: 30%;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.carousel-item {
+		&__text {
+			top: 40%;
+
+			&__title {
+				font-size: 2.62vw;
+				line-height: 30px;
+			}
+
+			&__desc {
+				padding-top: 0;
+				font-size: 1.165vw;
+				line-height: 13px;
+			}
+		}
+	}
+
+	.carousel-control-prev,
+	.carousel-control-next {
+		margin-right: 2rem;
+		margin-left: 2rem;
+	}
+
+	.hero {
+		margin-top: 2.8rem;
+		grid-template-columns: repeat(auto-fit, minmax(25vw, 1fr));
+
+		&__item {
+			&-title {
+				font-size: 14px;
+				line-height: 19px;
+			}
+		}
+	}
+
+	.product {
+		padding-bottom: 2rem;
+		&__content {
+			margin-bottom: 3rem;
+
+			&-title {
+				@include styleTitle;
+				font-size: 22px;
+			}
+		}
+
+		@include listProduct(27vw, 25.7rem);
+		&-list__banner {
+			max-height: 25.7rem;
+		}
+		&-wrapper {
+			margin: 4rem 0;
+		}
+	}
+
+	.reviews {
+		padding-top: 5rem;
+		padding-bottom: 6rem;
+
+		&-customs {
+			&__opinion {
+				&__title {
+					font-size: 22px;
+					line-height: 27px;
+					padding-bottom: 1rem;
+				}
+
+				&__desc {
+					font-size: 14px;
+					line-height: 24px;
+				}
+
+				&-items {
+					display: flex;
+					gap: 2.4rem;
+				}
+			}
+
+			&__ads {
+				&-banner {
+					width: 100%;
+					height: auto;
+					min-height: 0;
+					min-width: 200px;
+				}
+			}
+		}
+	}
+
+	.video {
+		padding-bottom: 4rem;
+
+		&__content {
+			margin-top: 5rem;
+			margin-bottom: 5rem;
+
+			&-title {
+				font-size: 22px;
+			}
+		}
+
+		&__list {
+			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+			place-items: center;
+			column-gap: 2.4rem;
+			row-gap: 1rem;
+			margin-bottom: 4rem;
+		}
+	}
+
+	.partnership {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+
+		&__content {
+			margin-bottom: 3.8rem;
+
+			&-title {
+				font-size: 22px;
+			}
+		}
+	}
+}
+
+@media (max-width: 652px) {
+	.reviews-customs__opinion__dots {
+		width: 100%;
+	}
+}
+
+@media (max-width: (426px)) {
+	.carousel-item {
+		&__text {
+			top: 35%;
+
+			&__desc {
+				line-height: 8px;
+			}
+		}
+	}
+
+	.hero {
+		margin-top: 1.8rem;
+		grid-template-columns: repeat(auto-fit, minmax(40vw, 1fr));
+
+		&__item {
+			&-title {
+				font-size: 14px;
+				line-height: 19px;
+			}
+			&-hover {
+				&__infor {
+					padding-top: 1rem;
+					padding-bottom: 0.5rem;
+					&__title {
+						font-size: 16px;
+					}
+					& > ul {
+						font-size: 12px;
+						line-height: 2rem;
+					}
+				}
+			}
+		}
+	}
+	.reviews {
+		padding-top: 5rem;
+		padding-bottom: 6rem;
+		&-customs {
+			&__opinion {
+				&-items {
+					&-wrapper {
+						display: flex;
+						justify-content: center;
+						gap: 1.4rem;
+					}
+					&-box {
+						&-infor {
+							display: block;
+							gap: 13.2px;
+							&__name {
+								padding: 1rem 0;
+								& > p {
+									font-size: 12px;
+									line-height: 17px;
+								}
+							}
+						}
+
+						&-review {
+							padding: 0;
+							& > p {
+								font-size: 12px;
+								line-height: 18px;
+							}
+						}
+					}
+				}
+			}
+
+			&__ads {
+				&-banner {
+					min-height: 0;
+					min-width: 0;
+				}
+			}
+		}
+	}
+	.video {
+		padding-bottom: 4rem;
+
+		&__content {
+			margin-top: 5rem;
+			margin-bottom: 5rem;
+		}
+
+		&__list {
+			grid-template-columns: repeat(auto-fit, minmax(28vw, 1fr));
+			place-items: center;
+
+			row-gap: 1rem;
+			margin-bottom: 4rem;
+		}
+	}
+}
